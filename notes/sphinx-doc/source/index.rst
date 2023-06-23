@@ -10,7 +10,7 @@ Welcome to Bubesh's Notes!
    :maxdepth: 1
    :caption: Table of Contents:
    
-   Computer_Networks/toc
+   contents/Programming Principles
 
 
 Indices and tables
@@ -20,5 +20,5 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-
+.. tags:: tag1
 .. index:: BNF, grammar, syntax, notation
