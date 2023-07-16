@@ -28,6 +28,8 @@ extensions = [
 templates_path = ['_templates']
 exclude_patterns = []
 
+# To remove "View page source" link
+html_show_sourcelink = False
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
