@@ -1,0 +1,12 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "esbonio.sphinx.confDir": "",
+        "favorites.sortDirection": "ASC",
+        "editor.tabSize": 3
+    }
+}
