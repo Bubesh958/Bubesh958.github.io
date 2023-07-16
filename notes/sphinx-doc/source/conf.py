@@ -42,7 +42,9 @@ html_css_files = [
     'css/custom_style.css',
 ]
 collapse_navigation = False
-
+html_theme_options = {
+    'navigation_depth': 5,
+}
 ############################################## Extensions
 
 # Path to extension's source

@@ -7,10 +7,11 @@ Welcome to Bubesh's Notes!
 =================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Table of Contents:
    
-   contents/Programming Principles
+   contents/Software Design/index
+   contents/System Design/index
 
 
 Indices and tables
