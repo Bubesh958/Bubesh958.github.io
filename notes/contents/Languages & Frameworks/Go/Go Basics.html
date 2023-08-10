@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Go Basics &mdash; Notes 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/custom_style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/design-tabs.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Software Design" href="../../Software%20Design/index.html" />
+    <link rel="prev" title="Go" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Notes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Languages &amp; Frameworks</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Go</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Go Basics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module">Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-style">Code Style</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#semicolon-insertion-rule">Semicolon Insertion rule</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#go-vet">go vet</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Software%20Design/index.html">Software Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../System%20Design/index.html">System Design</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Languages &amp; Frameworks</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Go</a></li>
+      <li class="breadcrumb-item active">Go Basics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="go-basics">
+<h1>Go Basics<a class="headerlink" href="#go-basics" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<section id="module">
+<h2>Module<a class="headerlink" href="#module" title="Permalink to this heading"></a></h2>
+<p>A go project is called go module. A module is not just source code and also includes dependencies specification for that moudle.</p>
+<p>To create a module:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>go<span class="w"> </span>mod<span class="w"> </span>init<span class="w"> </span>hello_world
+<span class="go">go: creating new go.mod: module hello_world</span>
+</pre></div>
+</div>
+</section>
+<section id="code-style">
+<h2>Code Style<a class="headerlink" href="#code-style" title="Permalink to this heading"></a></h2>
+<p>Most languages allow a great deal of flexibility on how code is formatted. Go does not. Enforcing a standard format makes it a great deal easier to write tools that manipulate source code. This simplifies the compiler and allows the creation of some clever tools for generating code.</p>
+<ol class="arabic simple">
+<li><p>Go programs use tabs to indent</p></li>
+<li><p>Semicolons in go is optional, because it automatically inserts them wherever required</p></li>
+<li><p>It is a syntax error if the opening brace is not on the same line as the declaration or command that begins the block.</p></li>
+</ol>
+<p>The Go development tools include a command, <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">fmt</span></code>, which automatically fixes the whitespace in your code to match the standard format. However, it can’t fix braces on the wrong line. Run it with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>go<span class="w"> </span>fmt<span class="w"> </span>./...
+<span class="go">hello.go</span>
+</pre></div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">./...</span></code> tells a Go tool to apply the command to all the files in the current directory and all subdirectories.</p>
+<section id="semicolon-insertion-rule">
+<h3>Semicolon Insertion rule<a class="headerlink" href="#semicolon-insertion-rule" title="Permalink to this heading"></a></h3>
+<p>The go fmt command won’t fix braces on the wrong line because of the semicolon insertion rule. Like C or Java, Go requires a semicolon at the end of every statement. However, Go developers should never put the semicolons in themselves. The Go compiler adds them automatically following a very simple rule</p>
+<dl class="simple">
+<dt>If the last token before a newline is any of the following, the lexer inserts a semicolon after the token:</dt><dd><ol class="arabic simple">
+<li><p>An identifier (which includes words like int and float64)</p></li>
+<li><p>A basic literal such as a number or string constant</p></li>
+<li><p>One of the tokens: “break,” “continue,” “fallthrough,” “return,” “++,” “–,” “),” or “}”</p></li>
+</ol>
+</dd>
+</dl>
+<p>With this simple rule in place, you can see why putting a brace in the wrong place breaks. If you write your code like this:</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>the semicolon insertion rule sees the “)” at the end of the func main() line and turns that into:</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">();</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>and that’s not valid Go.</p>
+</section>
+</section>
+<section id="go-vet">
+<h2>go vet<a class="headerlink" href="#go-vet" title="Permalink to this heading"></a></h2>
+<p>tODO</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Go" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../Software%20Design/index.html" class="btn btn-neutral float-right" title="Software Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Bubesh.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
