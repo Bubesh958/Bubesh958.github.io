@@ -54,3 +54,8 @@ span[style="font-weight:600"] {
     font-family: Cascadia Code !important;
     tab-size: 4 !important;
 }
+
+/* Indent first line */
+/* p {
+    text-indent: 1em;
+} */

@@ -9,9 +9,11 @@ Welcome to Bubesh's Notes!
 .. toctree::
    :maxdepth: 2
    :caption: Table of Contents:
-   
+
+   contents/Languages & Frameworks/index   
    contents/Software Design/index
    contents/System Design/index
+
 
 
 Indices and tables
